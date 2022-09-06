@@ -19,10 +19,17 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
 
   return (
     <>
-      <Popover className="block tablet:hidden mt-5">
+      <Popover className="block tablet:hidden mt-5" style={{position: 'sticky',
+top: 10,
+zIndex: '1'}}>
         {({ open }) => (
           <>
-            <div className="flex items-center justify-between p-2 laptop:p-0">
+            <div className="flex items-center justify-between p-2 laptop:p-0" 
+        style={{
+        borderRadius: '5px',
+        boxShadow: '0 4px 30px rgb(0 0 0 / 10%)',
+        backdropFilter: 'blur(5px)',
+        WebkitBackdropFilter: 'blur(5px)',}}>
               <h1
                 onClick={() => router.push("/")}
                 className="font-medium p-2 laptop:p-0 link"
@@ -77,7 +84,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                   {showResume && (
                     <Button
                       onClick={() =>
-                        window.open("mailto:hello@chetanverma.com")
+                        router.push("/resume")
                       }
                     >
                       Resume
@@ -122,6 +129,14 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
         className={`mt-10 hidden flex-row items-center justify-between sticky ${
           theme === "light" && "bg-white"
         } dark:text-white top-0 z-10 tablet:flex`}
+
+        style={{
+          top: 15,
+          background: 'rgb(255 255 255 / 50%)',
+        borderRadius: '16px',
+        boxShadow: '0 4px 30px rgb(0 0 0 / 10%)',
+        backdropFilter: 'blur(5px)',
+        WebkitBackdropFilter: 'blur(5px)', paddingLeft: 10}}
       >
         <h1
           onClick={() => router.push("/")}
